@@ -309,10 +309,10 @@ $('.qtybtn').on('click', function() {
 	  var newVal = parseFloat(oldValue) + 1;
 	} else {
 	   // Don't allow decrementing below zero
-	  if (oldValue > 0) {
+	  if (oldValue > 1) {
 		var newVal = parseFloat(oldValue) - 1;
 		} else {
-		newVal = 0;
+		newVal = 1;
 	  }
 	  }
 	$button.parent().find('input').val(newVal);
@@ -377,3 +377,10 @@ if($('.product-details-with-gallery').length) {
     
     
 })(jQuery);	
+
+$(window).on('load', function () {
+    $preloader = $('.loaderArea'),
+    $loader = $preloader.find('.loader');
+    $loader.fadeOut();
+    $preloader.delay(350).fadeOut('slow');
+});

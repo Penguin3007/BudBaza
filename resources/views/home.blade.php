@@ -1,54 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
- <!-- Hero Section Start -->
-    <div class="hero-slider section">
-        <!-- Hero Item Start -->
-        <div class="hero-item" style="background-image: url({{ asset('/images/slider/slider-bg-1.jpg') }})">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="hero-content-wrap col">
-                        <div class="hero-content text-center">
-                            <h2>BEARD OIL</h2>
-                            <h1>FOR GLOSSY AND <br>STYLISH BEARD</h1>
-                            <a class="btn btn-round btn-lg btn-theme" href="shop-4-column.html">SHOP NOW</a>
-                        </div>
-                        <div class="hero-image">
-                            <img src="{{ asset('/images/slider/slider-product-1.png') }}" alt="">
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div><!-- Hero Item End -->
-        <!-- Hero Item Start -->
-        <div class="hero-item" style="background-image: url({{ asset('/images/slider/slider-bg-1.jpg') }})">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="hero-content-wrap col">
-                        <div class="hero-content text-center">
-                            <h2>BEARD OIL</h2>
-                            <h1>FOR GLOSSY AND <br>STYLISH BEARD</h1>
-                            <a class="btn btn-round btn-lg btn-theme" href="shop-4-column.html">SHOP NOW</a>
-                        </div>
-                        <div class="hero-image">
-                            <img src="{{ asset('/images/slider/slider-product-1.png') }}" alt="">
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div><!-- Hero Item End -->
-    </div><!-- Hero Section End -->
-    
+
     <!-- About Section Start -->
     <div class="about-section section position-relative pt-90 pb-60 pt-lg-80 pb-lg-50 pt-md-70 pb-md-40 pt-sm-60 pb-sm-30 pt-xs-50 pb-xs-20 fix">
        
         <!-- About Section Shape -->
-        <div class="about-shape one rellax" data-rellax-speed="-5" data-rellax-percentage="0.5"><img src="assets/images/shape/about-shape-1.png" alt=""></div>
-        <div class="about-shape two rellax" data-rellax-speed="3" data-rellax-percentage="0.5"><img src="assets/images/shape/about-shape-2.png" alt=""></div>
+        <div class="about-shape one rellax" data-rellax-speed="-5" data-rellax-percentage="0.5"><img src="{{ asset('images/shape/about-shape-1.png') }}" alt=""></div>
+        <div class="about-shape two rellax" data-rellax-speed="3" data-rellax-percentage="0.5"><img src="{{ asset('images/shape/about-shape-2.png') }}" alt=""></div>
        
         <div class="container">
             <div class="row align-items-center">
@@ -56,10 +15,10 @@
                 <!-- About Image Start -->
                 <div class="col-lg-6 col-12 order-1 order-lg-2 mb-30">
                     <div class="about-image masonry-grid row row-7">
-                        <div class="col-6 col"><img src="assets/images/about/about-1-1.jpg" alt=""></div>
-                        <div class="col-6 col"><img src="assets/images/about/about-1-2.jpg" alt=""></div>
-                        <div class="col-6 col"><img src="assets/images/about/about-1-3.jpg" alt=""></div>
-                        <div class="col-6 col"><img src="assets/images/about/about-1-4.jpg" alt=""></div>
+                        <div class="col-6 col"><img src="{{ asset('images/about/about-1-1.jpg') }}" alt=""></div>
+                        <div class="col-6 col"><img src="{{ asset('images/about/about-1-2.jpg') }}" alt=""></div>
+                        <div class="col-6 col"><img src="{{ asset('images/about/about-1-3.jpg') }}" alt=""></div>
+                        <div class="col-6 col"><img src="{{ asset('images/about/about-1-4.jpg') }}" alt=""></div>
                     </div>
                 </div><!-- About Image End -->
                 
@@ -106,7 +65,7 @@
                             <!-- Image -->
                             <div class="product-image">
                                 <!-- Image -->
-                                <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-1.jpg" alt=""></a>
+                                <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-1.jpg') }}" alt=""></a>
                                 <!-- Product Action -->
                                 <div class="product-action">
                                     <a href="#" class="cart"><span></span></a>
@@ -143,7 +102,7 @@
                             <!-- Image -->
                             <div class="product-image">
                                 <!-- Image -->
-                                <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-2.jpg" alt=""></a>
+                                <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-2.jpg') }}" alt=""></a>
                                 <!-- Product Action -->
                                 <div class="product-action">
                                     <a href="#" class="cart"><span></span></a>
@@ -180,7 +139,7 @@
                             <!-- Image -->
                             <div class="product-image">
                                 <!-- Image -->
-                                <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-3.jpg" alt=""></a>
+                                <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-3.jpg') }}" alt=""></a>
                                 <!-- Product Action -->
                                 <div class="product-action">
                                     <a href="#" class="cart"><span></span></a>
@@ -217,7 +176,7 @@
                             <!-- Image -->
                             <div class="product-image">
                                 <!-- Image -->
-                                <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-4.jpg" alt=""></a>
+                                <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-4.jpg') }}" alt=""></a>
                                 <!-- Product Action -->
                                 <div class="product-action">
                                     <a href="#" class="cart"><span></span></a>
@@ -254,7 +213,7 @@
                             <!-- Image -->
                             <div class="product-image">
                                 <!-- Image -->
-                                <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-5.jpg" alt=""></a>
+                                <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-5.jpg') }}" alt=""></a>
                                 <!-- Product Action -->
                                 <div class="product-action">
                                     <a href="#" class="cart"><span></span></a>
@@ -298,7 +257,7 @@
             
             <div class="row">
                 <div class="col-12">
-                    <div class="banner"><a href="#"><img src="assets/images/banner/banner-1.jpg" alt=""></a></div>
+                    <div class="banner"><a href="#"><img src="{{ asset('images/banner/banner-1.jpg') }}" alt=""></a></div>
                 </div>
             </div>
             
@@ -355,7 +314,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-5.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-5.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -392,7 +351,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-6.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-6.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -429,7 +388,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-7.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-7.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -466,7 +425,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-8.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-8.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -503,7 +462,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-9.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-9.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -540,7 +499,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-10.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-10.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -577,7 +536,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-11.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-11.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -614,7 +573,7 @@
                         <!-- Image -->
                         <div class="product-image">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-12.jpg" alt=""></a>
+                            <a href="product-details-variable.html" class="image"><img src="{{ asset('images/product/product-12.jpg') }}" alt=""></a>
                             <!-- Product Action -->
                             <div class="product-action">
                                 <a href="#" class="cart"><span></span></a>
@@ -656,11 +615,11 @@
             <div class="row">
                 
                 <div class="brand-slider section">
-                    <div class="brand-item col"><img src="assets/images/brands/brand-1.png" alt=""></div>
-                    <div class="brand-item col"><img src="assets/images/brands/brand-2.png" alt=""></div>
-                    <div class="brand-item col"><img src="assets/images/brands/brand-3.png" alt=""></div>
-                    <div class="brand-item col"><img src="assets/images/brands/brand-4.png" alt=""></div>
-                    <div class="brand-item col"><img src="assets/images/brands/brand-5.png" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-1.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-2.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-3.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-4.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-5.png') }}" alt=""></div>
                 </div>
                 
             </div>
