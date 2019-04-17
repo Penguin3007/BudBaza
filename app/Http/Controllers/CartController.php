@@ -7,7 +7,7 @@ use App\Product;
 
 class CartController extends Controller
 {
-    public function index(){
+    public function index(Product $product){
         return view('cart');
     }
 
@@ -41,7 +41,7 @@ class CartController extends Controller
                 $data['items'] = $product->quanity;
                 return $data;
             }else{
-                \Cart::add($product->id, $product->title, $qty, $product->price,['img' => $img[0]]);
+                \Cart::add($product->id, $product->title, $qty, $product->price,['img' => $img[0],'price' => $product->price,'slug' => $product->slug]);
                 $data['code']  = 1;
                 return $data;
             }
@@ -53,5 +53,27 @@ class CartController extends Controller
         $rowId = $request->rowId;
         \Cart::remove($rowId);
         return redirect($request->server('HTTP_REFERER'));
+    }
+
+    public function update(Request $request, Product $product){
+        $id     = $request->id;
+        $val    = $request->val;
+        $products = $product->where('id',$id)->get();
+        foreach(\Cart::content() as $item){
+            if($item->id == $id){
+                $qty = $val - $item->qty;
+                foreach($products as $product){
+                    if($item->qty+$qty > $product->quanity){
+                        $data['code']  = 2;
+                        $data['items'] = $product->quanity;
+                        return $data;
+                    }else{
+                        \Cart::update($item->rowId, $item->qty+$qty);
+                        $data['code'] = 1;
+                        return $data;
+                    }
+                }
+            }
+        }
     }
 }

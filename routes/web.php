@@ -10,18 +10,35 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/* POST REQUESTS */
 Route::post('/add_review','ReviewController@create');
-Route::post('/add_to_cart', 'CartController@add');
 
-
-
-
+/* GET REQUESTS */
 Route::get('/', 'HomeController@index');
-Route::get('/shop', 'ShopController@index');
-Route::get('/cart', 'CartController@index');
-Route::get('/shop/{slug}', 'ShopController@product');
-Route::get('/delete_from_cart/{rowId}', 'CartController@delete');
+
+Route::group(['prefix' => 'blog'], function () {
+	Route::get('/','BlogController@index');
+	Route::get('/{slug}','BlogController@post');
+});
+
+/* SHOP REQUESTS */
+Route::group(['prefix' => 'shop'], function () {
+	Route::get('/', 'ShopController@index');
+	Route::get('/{slug}', 'ShopController@product');
+});
+
+/* CHECKOUT REQUESTS */
+Route::group(['prefix' => 'checkout'],function(){
+	Route::get('/','CheckoutController@index');
+	Route::post('/order','CheckoutController@create');
+});
+/* CART REQUESTS */
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('/', 'CartController@index');
+    Route::post('/add', 'CartController@add');
+    Route::post('/update', 'CartController@update');
+    Route::get('/delete/{rowId}', 'CartController@delete');    
+});
 
 Auth::routes();
 

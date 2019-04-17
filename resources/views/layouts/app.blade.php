@@ -69,7 +69,7 @@
                     <div class="header-action">
                         
                         <!-- Wishlist -->
-                        <a href="wishlist.html" class="header-wishlist"><span class="icon">wishlist</span></a>
+                        {{-- <a href="wishlist.html" class="header-wishlist"><span class="icon">wishlist</span></a> --}}
                         
                         <!-- Cart Wrap Start-->
                         <div class="header-cart-wrap">
@@ -90,8 +90,8 @@
                                                 <!-- Mini Cart Product -->
                                                 <li class="mini-cart-product">
                                                     <div class="image">
-                                                        <a href="#"><img src="{{ Voyager::image($item->options->img) }}" alt=""></a>
-                                                        <a href="/delete_from_cart/{{ $item->rowId }}" class="remove"><i class="fa fa-trash-o"></i></a>
+                                                        <a href="/shop/{{ $item->options->slug }}"><img src="{{ Voyager::image($item->options->img) }}" alt=""></a>
+                                                        <a href="/cart/delete/{{ $item->rowId }}" class="remove"><i class="fa fa-trash-o"></i></a>
                                                     </div>
                                                     <div class="content">
                                                         <a href="product-details-variable.html" class="title">{{ $item->name }}</a>
@@ -107,7 +107,7 @@
                                     <h4>Стоимость: {{ \Cart::subtotal() }} ₴</h4>
                                     <div class="buttons">
                                         <a href="/cart">Корзина</a>
-                                        <a href="checkout.html">Оформить</a>
+                                        <a href="/checkout">Оформить</a>
                                     </div>
                                 </div>
                             </div><!-- Header Mini Cart End -->
@@ -135,14 +135,13 @@
                 <div class="col mb-40">
                     <div class="footer-widget">
                         <img src="assets/images/logo-light.png" alt="">
-                        <p>We provide the best Beard oil all over the world. We are the worldd best store for Beard Oil. You can buy our</p>
-                        <p>228, East Zone, Momeno Tower <br>South City, England</p>
-                        <p><a href="#">+12546 687 987</a> / <a href="#">+15425 987 541</a></p>
-                        <p><a href="#">demo@example.com</a> <br> <a href="#">ww.example.com</a></p>
+                        <p>Харьков</p>
+                        <p><a href="tel:0935876774">093 587 677 4</a></p>
+                        <p><a href="mailto:stefaniuk3007@gmai.com">stefaniuk3007@gmai.com</a></p>
                     </div>
                 </div>
                 
-                <div class="col mb-40">
+                {{-- <div class="col mb-40">
                     <div class="footer-widget">
                         <h3 class="title">Quick Link</h3>
                         <ul>
@@ -154,9 +153,9 @@
                             <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 
-                <div class="col mb-40">
+                {{-- <div class="col mb-40">
                     <div class="footer-widget">
                         <h3 class="title">Information</h3>
                         <ul>
@@ -168,18 +167,14 @@
                             <li><a href="#">Promotional Offers</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 
                 <div class="col mb-40">
                     <div class="footer-widget">
-                        <h3 class="title">Follow us</h3>
+                        <h3 class="title">Подписывайтесь на нас в соц. сетях</h3>
                         <ul>
                             <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
                             <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Linkedin</a></li>
-                            <li><a href="#">Google Plus</a></li>
-                            <li><a href="#">Youtube</a></li>
                         </ul>
                     </div>
                 </div>
@@ -194,11 +189,11 @@
             <div class="row align-items-center">
                 
                 <div class="copyright col-lg-6 col-12">
-                    <p>Copyright &copy; <a href="#">Bardy</a>, All Rights Reserved</p>
+                    <p>Copyright &copy; <a href="#">BudBaza</a>, All Rights Reserved</p>
                 </div>
                 
                 <div class="payment-method col-lg-6 col-12">
-                    <img src="assets/images/payment-method.png" alt="">
+                    <img src="{{ asset('images/payment-method.png') }}" alt="">
                 </div>
                 
             </div>

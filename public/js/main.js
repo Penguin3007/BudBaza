@@ -316,6 +316,23 @@ $('.qtybtn').on('click', function() {
 	  }
 	  }
 	$button.parent().find('input').val(newVal);
+    if($button.parent().find('input').hasClass('cart_quan')){
+        $.ajax({
+            headers: {
+              'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            },
+            type:'POST',
+            url:'/cart/update',
+            data: {id:$button.parent().find('input').data('id'),val:newVal},
+            beforeSend:function(){
+                $('.loaderArea').fadeIn().find('.loader').fadeIn();
+            },
+            success:function(msg){
+                $('.loaderArea').fadeOut().find('.loader').fadeOut();
+                (msg.code == 2) ? ($('.error').fadeIn().find('.error_text').text('На складе всего '+msg.items+' шт.'),setTimeout(function(){$('.error').fadeOut()},5000)) : location.reload();
+            }
+        });
+    }
 });  
     
 /*--
@@ -383,4 +400,11 @@ $(window).on('load', function () {
     $loader = $preloader.find('.loader');
     $loader.fadeOut();
     $preloader.delay(350).fadeOut('slow');
+});
+$('input[name="shipping_method"]').change(function(){
+    if($(this).val() == 'delivery'){
+        $('.del_tax').text('50 ₴');
+    }else{
+        $('.del_tax').text('0 ₴');
+    }
 });

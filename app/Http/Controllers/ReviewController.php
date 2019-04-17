@@ -14,9 +14,14 @@ class ReviewController extends Controller
 	}
 
 	public function create(Request $request,Review $review){
+		if(empty($request->email) || empty($request->rating) || empty($request->name) || empty($request->text)){
+			$data['code'] = 4;
+			return $data;
+		}
 		$emails = $review->where('email',$request->email)->where('product_slug',$request->slug)->get();
 		if(count($emails) > 0){
-			$data['code'] == 3;
+			$data['code'] = 3;
+			return $data;
 		} 
 		$id = $review->insert([
 			[

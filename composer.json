@@ -12,10 +12,10 @@
         "fideloper/proxy": "^4.0",
         "hardevine/shoppingcart": "^2.5",
         "illuminate/session": "^5.7",
-        "laravel/framework": "5.7.20",
+        "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "tcg/voyager": "^1.1",
-        "nesbot/carbon": "^2.10.1"
+        "nesbot/carbon": "1.32.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

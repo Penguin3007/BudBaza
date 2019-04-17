@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@php $carbon = new Carbon\Carbon(); @endphp
 @section('banner')
     <div class="page-banner-section section">
         <div class="container">
@@ -51,12 +51,38 @@
                                     <!-- Price & Ratting -->
                                     <div class="bottom">
                                         <span class="price">{{ $product->price }} ₴</span>
-                                        <span class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                        <span class="ratting">      
+                                             @if($rating == 1)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($rating == 2)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($rating == 3)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($rating == 4)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($rating >= 5)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
@@ -71,8 +97,6 @@
                                     <div class="product-action">
                                         @csrf
                                         <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart single-product add-to-cart"><span></span></a>
-                                        <a href="#" class="compare"><span></span></a>
-                                        <a href="#" class="wishlist"><span></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +115,7 @@
                             <div class="review-list">
                                 @foreach($reviews as $review)
                                     <div class="review">
-                                        <h4 class="name">{{ $review->name }} <span>9 March 2018</span></h4>
+                                        <h4 class="name">{{ $review->name }} <span>{{ $carbon->parse($review->created_at)->formatlocalized('%d %B %Y') }}</span></h4>
                                         <div class="ratting">
                                             @if($review->rating == 1)
                                                 <i class="fa fa-star"></i>
@@ -164,7 +188,7 @@
         </div>
     </div><!-- Product Section End -->
     
-    <!-- Service Section Start -->
+       <!-- Service Section Start -->
     <div class="service-section section pl-15 pr-15 pl-lg-30 pr-lg-30 pl-md-30 pr-md-30">
         <div class="service-container">
             <div class="row ml-0 mr-0">
@@ -172,36 +196,36 @@
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Free home delivery</h3>
-                        <p>Provide free home delivery for all product over $100</p>
+                        <h3>Доставка по всему Харькову</h3>
+                        <p>Доставка курьером осуществляется в пределах города Харькова</p>
                     </div>
                 </div>
                 
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Quality Products</h3>
-                        <p>We ensure the product quality that is our main goal</p>
+                        <h3>Качество товаров</h3>
+                        <p>Мы работаем только с проверенными производителя, качество наша сильная сторона</p>
                     </div>
                 </div>
                 
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>3 Days Return</h3>
-                        <p>Return product within 3 days for any product you buy</p>
+                        <h3>Срок доставки от 1 до 2 дней</h3>
+                        <p>Малогабаритные товары доставляем в день заказа</p>
                     </div>
                 </div>
                 
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Online Support</h3>
-                        <p>We ensure the product quality that you can trust easily</p>
+                        <h3>Круглосуточная онлайн поддержка 24/7</h3>
+                        <p>У нас работает круглосуточная поддержка, которая поможет вам и ответи на все ваши вопросы</p>
                     </div>
                 </div>
                 
             </div>
         </div>
-    </div>
+    </div><!-- Service Section End -->
 @endsection

@@ -33,11 +33,11 @@
                             <p>Показано {{ count($products) }} из {{ $total }}</p>
                         </div>
                         <div class="product-short">
-                            <p>Short by</p>
+                            <p>Сортировать по</p>
                             <select class="nice-select">
-                                <option value="trending">Trending items</option>
-                                <option value="sales">Best sellers</option>
-                                <option value="rating">Best rated</option>
+                                <option value="title">Названию</option>
+                                <option value="price">Цене</option>
+                                <option value="rating">Популярности</option>
                                 <option value="date">Newest items</option>
                                 <option value="price-asc">Price: low to high</option>
                                 <option value="price-desc">Price: high to low</option>
@@ -48,9 +48,8 @@
             </div><!-- Shop Toolbar End -->
 
             <div class="shop-product-wrap grid row">
-
                 @foreach($products as $product)
-	                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
+	                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30 grid-item">
 	                    <div class="product-item">
 	                        <!-- Image -->
 	                        <div class="product-image">
@@ -61,8 +60,6 @@
 	                            <div class="product-action">
                                     @csrf
 	                                <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart add-to-cart"><span></span></a>
-	                                <a href="#" class="wishlist"><span></span></a>
-	                                <a href="#" class="quickview"><span></span></a>
 	                            </div>
 	                        </div>
 	                        <!-- Content -->
@@ -75,22 +72,49 @@
 	                                <!-- Price & Ratting -->
 	                                <div class="bottom">
 	                                    <span class="price">{{ $product->price }} ₴</span>
-	                                    <span class="ratting">
-	                                        <i class="fa fa-star-o"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                    </span>
+	                                    <span class="ratting">  
+                                            @if($product->rating == 0)
+                                                <p>Нет отзывов</p>
+                                            @elseif($product->rating == 1)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating == 2)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating == 3)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating == 4)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating >= 5)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            @endif
+                                        </span>
 	                                </div>
 	                            </div>
 	                            <div class="body">
 	                                {!! $product->desc !!}
 	                                <!-- Product Action -->
 	                                <div class="product-action">
-	                                    <a href="/add_to_cart/{{ $product->id }}" class="cart"><span></span></a>
-	                                    <a href="#" class="wishlist"><span></span></a>
-	                                    <a href="#" class="quickview"><span></span></a>
+	                                    <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart"><span></span></a>
+	                                    <a href="/shop/{{ $product->slug }}" class="quickview"><span></span></a>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -108,7 +132,7 @@
         </div>
     </div><!-- Product Section End -->
     
-    <!-- Service Section Start -->
+        <!-- Service Section Start -->
     <div class="service-section section pl-15 pr-15 pl-lg-30 pr-lg-30 pl-md-30 pr-md-30">
         <div class="service-container">
             <div class="row ml-0 mr-0">
@@ -116,32 +140,32 @@
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Free home delivery</h3>
-                        <p>Provide free home delivery for all product over $100</p>
+                        <h3>Доставка по всему Харькову</h3>
+                        <p>Доставка курьером осуществляется в пределах города Харькова</p>
                     </div>
                 </div>
                 
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Quality Products</h3>
-                        <p>We ensure the product quality that is our main goal</p>
+                        <h3>Качество товаров</h3>
+                        <p>Мы работаем только с проверенными производителя, качество наша сильная сторона</p>
                     </div>
                 </div>
                 
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>3 Days Return</h3>
-                        <p>Return product within 3 days for any product you buy</p>
+                        <h3>Срок доставки от 1 до 2 дней</h3>
+                        <p>Малогабаритные товары доставляем в день заказа</p>
                     </div>
                 </div>
                 
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Online Support</h3>
-                        <p>We ensure the product quality that you can trust easily</p>
+                        <h3>Круглосуточная онлайн поддержка 24/7</h3>
+                        <p>У нас работает круглосуточная поддержка, которая поможет вам и ответи на все ваши вопросы</p>
                     </div>
                 </div>
                 

@@ -3996,9 +3996,8 @@ input::placeholder, textarea::placeholder {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
         justify-content: flex-start; } }
-    .cart-summary .cart-summary-button button {
+    .cart-summary .cart-summary-button a {
       margin-top: 10px;
-      width: 140px;
       border-radius: 50px;
       height: 36px;
       border: 1px solid #999999;
@@ -4009,30 +4008,30 @@ input::placeholder, textarea::placeholder {
       margin-left: 20px;
       font-weight: 700;
       float: right; }
-      .cart-summary .cart-summary-button button:last-child {
+      .cart-summary .cart-summary-button a:last-child {
         margin-left: 0; }
-      .cart-summary .cart-summary-button button.checkout-btn {
+      .cart-summary .cart-summary-button a.checkout-btn {
         color: #222222;
         background-color: #d0a97e;
         border-color: #d0a97e; }
-      .cart-summary .cart-summary-button button:hover {
+      .cart-summary .cart-summary-button a:hover {
         background-color: #222222;
         border-color: #222222;
         color: #d0a97e; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .cart-summary .cart-summary-button button {
+        .cart-summary .cart-summary-button a {
           margin-left: 0;
           margin-right: 20px; }
-          .cart-summary .cart-summary-button button:last-child {
+          .cart-summary .cart-summary-button a:last-child {
             margin-right: 0; } }
       @media only screen and (max-width: 767px) {
-        .cart-summary .cart-summary-button button {
+        .cart-summary .cart-summary-button a {
           margin-left: 0;
           margin-right: 10px; }
-          .cart-summary .cart-summary-button button:last-child {
+          .cart-summary .cart-summary-button a:last-child {
             margin-right: 0; } }
       @media only screen and (max-width: 575px) {
-        .cart-summary .cart-summary-button button {
+        .cart-summary .cart-summary-button a {
           width: 130px; } }
 
 /*---------------------------------------
@@ -4579,6 +4578,7 @@ input::placeholder, textarea::placeholder {
   transform: translate(-50%);
 }
 .error{
+  top: 0;
   display: none;
   position: fixed;
   width: 100%;
