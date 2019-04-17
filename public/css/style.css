@@ -4654,3 +4654,10 @@ h1 {
 /* lighten current selection */ .rating > input:checked ~ label:hover ~ label {
   color: #ffed85;
 }
+
+.account-wrapper{
+  margin-left: 10%;
+}
+.account-wrapper img{
+  max-width: none;
+}

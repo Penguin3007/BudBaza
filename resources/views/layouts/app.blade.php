@@ -113,10 +113,11 @@
                             </div><!-- Header Mini Cart End -->
                             
                         </div><!-- Cart Wrap End-->
-                        
+                        <div class="account-wrapper">
+                            <a title="Личный кабинет" href="/account"><img width="30px" height="30px" src="{{ asset('images/account.png') }}" alt=""></a>
+                        </div>
                     </div>
-                </div>
-                
+                </div>                
                 <div class="col-12 d-block d-lg-none">
                     <div class="mobile-menu"></div>
                 </div>
@@ -134,10 +135,10 @@
                 
                 <div class="col mb-40">
                     <div class="footer-widget">
-                        <img src="assets/images/logo-light.png" alt="">
+                        <img src="{{ Voyager::image(setting('site.logo')) }}" alt="">
                         <p>Харьков</p>
                         <p><a href="tel:0935876774">093 587 677 4</a></p>
-                        <p><a href="mailto:stefaniuk3007@gmai.com">stefaniuk3007@gmai.com</a></p>
+                        <p><a href="mailto:stefaniuk3007@gmail.com">stefaniuk3007@gmail.com</a></p>
                     </div>
                 </div>
                 
