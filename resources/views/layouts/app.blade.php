@@ -114,7 +114,11 @@
                             
                         </div><!-- Cart Wrap End-->
                         <div class="account-wrapper">
-                            <a title="Личный кабинет" href="/account"><img width="30px" height="30px" src="{{ asset('images/account.png') }}" alt=""></a>
+                            @if(\Auth::check())
+                                <a title="Выйти" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><img width="30px" height="30px" src="{{ asset('images/logout.png') }}" alt=""></a>
+                            @else
+                                <a title="Личный кабинет" href="/account"><img width="30px" height="30px" src="{{ asset('images/account.png') }}" alt=""></a>                                
+                            @endif
                         </div>
                     </div>
                 </div>                
@@ -202,6 +206,11 @@
     </div><!-- Footer Bottom Section End -->
 
 </div>
+<!--Logout form-->
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
 <!-- JS
 ============================================ -->
 

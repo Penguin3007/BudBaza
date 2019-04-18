@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new controller instance.
@@ -48,11 +48,24 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'reg_name.required'     => 'Имя является обязательным.',
+            'reg_lname.required'    => 'Фамилия является обязательной.',
+            'reg_name.max'          => 'Имя не может быть больше :max символов',
+            'reg_lname.max'         => 'Фамилия не может быть больше :max символов',
+            'reg_email.max'         => 'E-mail не может быть больше :max символов',
+            'reg_password.min'      => 'Пароль не может быть меньше :min символов',
+            'email'                 => 'Поле должно быть E-mail',
+            'string'                => 'Поле должно быть строкой',
+            'confirmed'             => 'Пароли не совпадают',
+            'unique'                => 'Пользователь с таки E-mail уже существует'
+        ];
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
+            'reg_name'      => ['required', 'string', 'max:255'],
+            'reg_lname'     => ['required', 'string', 'max:255'],
+            'reg_email'     => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'reg_password'  => ['required', 'string', 'min:6', 'confirmed'],
+        ], $messages);
     }
 
     /**
@@ -64,9 +77,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name'      => $data['reg_name'],
+            'lname'     => $data['reg_lname'],
+            'email'     => $data['reg_email'],
+            'password'  => Hash::make($data['reg_password']),
         ]);
     }
 }

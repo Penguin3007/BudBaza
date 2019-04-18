@@ -32,6 +32,12 @@ Route::group(['prefix' => 'checkout'],function(){
 	Route::get('/','CheckoutController@index');
 	Route::post('/order','CheckoutController@create');
 });
+
+/* ACCOUNT REQUESTS */
+Route::group(['prefix' => 'account'], function () {
+    Route::get('/','AccountController@index');
+});
+
 /* CART REQUESTS */
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/', 'CartController@index');

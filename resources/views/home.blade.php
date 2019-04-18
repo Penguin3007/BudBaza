@@ -182,7 +182,7 @@
             
             <div class="row">
                 <div class="col-12">
-                    <div class="banner"><a href="#"><img src="assets/images/banner/banner-1.jpg" alt=""></a></div>
+                    <div class="banner"><a href="#"><img src="{{ asset('images/banner/banner-1.jpg') }}" alt=""></a></div>
                 </div>
             </div>
             
@@ -225,310 +225,81 @@
             <div class="row">
                 <div class="col">
                     <div class="section-title left mb-60 mb-xs-40">
-                        <h1>Popular Products</h1>
-                        <p>Some of our customer say’s that they trust us and buy our product without any hagitation because they belive us and always happy to buy our product.</p>
+                        <h1>Популярные товары</h1>
+                        <p>Некоторые из наших клиентов говорят, что они доверяют нам и покупают наши товары без каких-либо сомнений, потому что они верят нам и всегда рады купить наши товары.</p>
                     </div>
                 </div>
             </div><!-- Section Title End -->
             
             <div class="row">
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
+                @foreach($populars as $product)
+                    <!-- Product Item Start -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
+                        <div class="product-item">
                             <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-5.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Moisturizing Oil</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$45 <span class="old">$75</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
+                            <div class="product-image">
+                                @php $img = json_decode($product->img); @endphp
+                                <!-- Image -->
+                                <a href="/product/{{ $product->slug }}" class="image"><img src="{{ Voyager::image($img[0]) }}" alt=""></a>
+                                <!-- Product Action -->
+                                <div class="product-action">
+                                    <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart"><span></span></a>
+                                    <a href="#" class="quickview"><span></span></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-6.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Katopeno Altuni</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$100 <span class="old">$125</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </span>
+                            <!-- Content -->
+                            <div class="product-content">
+                                <div class="head">
+                                    <!-- Title -->
+                                    <div class="top">
+                                        <h4 class="title"><a href="/product/{{ $product->slug }}">{{ $product->title }}</a></h4>
+                                    </div>
+                                    <!-- Price & Ratting -->
+                                    <div class="bottom">
+                                        <span class="price">{{ isset($product->disc_price) ? $product->disc_price : $product->price }} ₴ 
+                                                {!! isset($product->disc_price) ? '<span class="old">'. $product->price .' ₴</span>' : '' !!}
+                                        </span>
+                                        <span class="ratting">  
+                                            @if($product->rating == 0)
+                                                <p>Нет отзывов</p>
+                                            @elseif($product->rating == 1)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating == 2)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating == 3)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating == 4)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            @elseif($product->rating >= 5)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            @endif
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-7.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Murikhete Paris</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$99 <span class="old">$165</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-8.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Vortahole Valohoi</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$92 <span class="old">$110</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-9.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Egentry Etumeni</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$39 <span class="old">$70</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-10.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Origeno Veledita</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$110 <span class="old">$139</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-11.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Baizidale Momone</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$78 <span class="old">$99</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-
-                <!-- Product Item Start -->
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30">
-                    <div class="product-item">
-                        <!-- Image -->
-                        <div class="product-image">
-                            <!-- Image -->
-                            <a href="product-details-variable.html" class="image"><img src="assets/images/product/product-12.jpg" alt=""></a>
-                            <!-- Product Action -->
-                            <div class="product-action">
-                                <a href="#" class="cart"><span></span></a>
-                                <a href="#" class="wishlist"><span></span></a>
-                                <a href="#" class="quickview"><span></span></a>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="product-content">
-                            <div class="head">
-                                <!-- Title -->
-                                <div class="top">
-                                    <h4 class="title"><a href="#">Buffekete Chai</a></h4>
-                                </div>
-                                <!-- Price & Ratting -->
-                                <div class="bottom">
-                                    <span class="price">$82 <span class="old">$105</span></span>
-                                    <span class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Product Item End -->
-                
+                    </div><!-- Product Item End -->
+                @endforeach
             </div>
             
         </div>
@@ -546,6 +317,9 @@
                     <div class="brand-item col"><img src="{{ asset('images/brands/brand-3.png') }}" alt=""></div>
                     <div class="brand-item col"><img src="{{ asset('images/brands/brand-4.png') }}" alt=""></div>
                     <div class="brand-item col"><img src="{{ asset('images/brands/brand-5.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-5.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-5.png') }}" alt=""></div>
+                    <div class="brand-item col"><img src="{{ asset('images/brands/brand-5.png') }}" alt=""></div>
                 </div>
                 
             </div>
@@ -560,8 +334,8 @@
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Доставка по всему Харькову</h3>
-                        <p>Доставка курьером осуществляется в пределах города Харькова</p>
+                        <h3>Бесплатная доставка</h3>
+                        <p>Бесплатная доставка в пределах города Харькова</p>
                     </div>
                 </div>
                 
@@ -569,7 +343,7 @@
                     <div class="icon"></div>
                     <div class="content">
                         <h3>Качество товаров</h3>
-                        <p>Мы работаем только с проверенными производителя, качество наша сильная сторона</p>
+                        <p>Мы работаем только с проверенными производителя</p>
                     </div>
                 </div>
                 
@@ -584,8 +358,8 @@
                 <div class="service col-xl-3 col-md-6 col-12">
                     <div class="icon"></div>
                     <div class="content">
-                        <h3>Круглосуточная онлайн поддержка 24/7</h3>
-                        <p>У нас работает круглосуточная поддержка, которая поможет вам и ответи на все ваши вопросы</p>
+                        <h3>Онлайн поддержка 24/7</h3>
+                        <p>У нас работает круглосуточная поддержка</p>
                     </div>
                 </div>
                 

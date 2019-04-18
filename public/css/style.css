@@ -4091,6 +4091,9 @@ input::placeholder, textarea::placeholder {
   .checkout-form input[type="checkbox"] {
     width: auto; }
 
+  .login-form input[type="checkbox"] {
+    width: auto; }
+
 .checkout-form .check-box {
   float: left;
   margin-right: 70px; }
@@ -4139,6 +4142,58 @@ input::placeholder, textarea::placeholder {
     .checkout-form .check-box input[type="checkbox"]:checked + label::after {
       opacity: 1; }
 
+
+
+
+
+
+.login-form .check-box {
+  float: left;
+  margin-right: 70px; }
+  .login-form .check-box:last-child {
+    margin-right: 0; }
+  .login-form .check-box input[type="checkbox"] {
+    display: none; }
+    .login-form .check-box input[type="checkbox"] + label {
+      position: relative;
+      padding-left: 30px;
+      line-height: 20px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #222222;
+      margin: 0; }
+      .login-form .check-box input[type="checkbox"] + label::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        display: block;
+        border: 2px solid #999999;
+        content: "";
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s; }
+      .login-form .check-box input[type="checkbox"] + label::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        content: "\f00c";
+        font-family: Fontawesome;
+        font-size: 12px;
+        line-height: 20px;
+        opacity: 0;
+        color: #222222;
+        width: 20px;
+        text-align: center;
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s; }
+    .login-form .check-box input[type="checkbox"]:checked + label::before {
+      border: 2px solid #222222; }
+    .login-form .check-box input[type="checkbox"]:checked + label::after {
+      opacity: 1; }
 /*-- Shipping Form --*/
 #shipping-form {
   display: none; }
@@ -4600,9 +4655,6 @@ fieldset,
 label {
   margin: 0;
   padding: 0;
-}
-body {
-  margin: 20px;
 }
 h1 {
   font-size: 1.5em;

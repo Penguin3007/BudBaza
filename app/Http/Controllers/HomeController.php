@@ -14,8 +14,8 @@ class HomeController extends Controller
     	foreach($populars as $popular){
     		$slugs[] = $popular->product_slug;
     	}
-    	$products = $product->whereIn('slug',$slugs)->get();
-    	$new_products = $product->orderBy('created_at','DESC')->get();
+    	$products = $product->whereIn('slug',$slugs)->take(8)->get();
+    	$new_products = $product->orderBy('created_at','DESC')->take(10)->get();
         foreach($products as $pr){
             $rating = 0;
             $reviews = $review->where('product_slug',$pr->slug)->get();

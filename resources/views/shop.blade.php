@@ -74,7 +74,6 @@
                                         <span class="price">{{ isset($product->disc_price) ? $product->disc_price : $product->price }} ₴ 
                                                 {!! isset($product->disc_price) ? '<span class="old">'. $product->price .' ₴</span>' : '' !!}
                                         </span>
-	                                    <span class="price"></span>
 	                                    <span class="ratting">  
                                             @if($product->rating == 0)
                                                 <p>Нет отзывов</p>
