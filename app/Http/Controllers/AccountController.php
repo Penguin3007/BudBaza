@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 
 class AccountController extends Controller
 {
@@ -13,5 +14,13 @@ class AccountController extends Controller
 
     public function index(){
         return view('account');
+    }
+
+    public function change_pass(){
+
+    }
+
+    public function update(User $user){
+    	
     }
 }

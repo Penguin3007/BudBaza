@@ -36,6 +36,8 @@ Route::group(['prefix' => 'checkout'],function(){
 /* ACCOUNT REQUESTS */
 Route::group(['prefix' => 'account'], function () {
     Route::get('/','AccountController@index');
+    Route::post('/update','AccountController@update');
+    Route::post('/change_pass','AccountController@change_pass');
 });
 
 /* CART REQUESTS */

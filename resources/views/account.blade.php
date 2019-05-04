@@ -108,7 +108,7 @@
 	                            	</div>
                             		<div class="account-details-form">
                             			<div class="row">
-                            				<form style="padding-left: 0px;" class="col-6" action="#">
+                            				<form method="POST" style="padding-left: 0px;" class="col-6" action="/account/update">
                             					@csrf
 	                            				<div class="col-12 mb-30">
 	                            					<input id="first-name" name="fname" value="{{ \Auth::user()->name }}" placeholder="Имя" type="text">
@@ -123,7 +123,7 @@
 	                            					<button type="submit" class="btn btn-round btn-lg">Сохранить</button>
 	                            				</div>
 	                            			</form>
-	                            			<form style="padding-left: 0px;" class="col-6" action="#">
+	                            			<form method="POST" style="padding-left: 0px;" class="col-6" action="/account/change_pass">
 	                            				@csrf
 	                            				<div class="col-12 mb-30">
 	                            					<input id="current-pwd" placeholder="Текущий пароль" type="password">

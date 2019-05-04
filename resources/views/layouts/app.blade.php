@@ -113,12 +113,8 @@
                             </div><!-- Header Mini Cart End -->
                             
                         </div><!-- Cart Wrap End-->
-                        <div class="account-wrapper">
-                            @if(\Auth::check())
-                                <a title="Выйти" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><img width="30px" height="30px" src="{{ asset('images/logout.png') }}" alt=""></a>
-                            @else
-                                <a title="Личный кабинет" href="/account"><img width="30px" height="30px" src="{{ asset('images/account.png') }}" alt=""></a>                                
-                            @endif
+                        <div class="account-wrapper" style="display: flex;">
+                            <a style="margin-right: 20%;" title="Личный кабинет" href="/account"><img width="30px" height="30px" src="{{ asset('images/account.png') }}" alt=""></a>
                         </div>
                     </div>
                 </div>                
@@ -224,6 +220,9 @@
 <script src="{{ asset('/js/plugins.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('/js/main.js') }}"></script>
+<!-- Isotope JS -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<!-- AJAX -->
 <script src="{{ asset('/js/ajax.js') }}"></script>
 </body>
 

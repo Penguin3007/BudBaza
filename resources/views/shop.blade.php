@@ -21,35 +21,35 @@
 <!-- Product Section Start -->
     <div class="product-section section pt-90 pb-90 pt-lg-80 pb-lg-80 pt-md-70 pb-md-70 pt-sm-60 pb-sm-60 pt-xs-50 pb-xs-50">
         <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-8 col-12 order-1 order-lg-2">
             <!-- Shop Toolbar Start -->
             <div class="row">
                 <div class="col">
                     <div class="shop-toolbar">
-                        <div class="product-view-mode">
-                            <button class="grid active" data-mode="grid"><span>grid</span></button>
-                            <button class="list" data-mode="list"><span>list</span></button>
-                        </div>
+                        {{-- <div class="product-view-mode">
+                            <button class="grid active" data-mode="grid"><span>сетка</span></button>
+                            <button class="list" data-mode="list"><span>список</span></button>
+                        </div> --}}
                         <div class="product-showing mr-auto">
                             <p>Показано {{ count($products) }} из {{ $total }}</p>
                         </div>
                         <div class="product-short">
-                            <p>Сортировать по</p>
+                            <p>Сортировка</p>
                             <select class="nice-select">
-                                <option value="title">Названию</option>
-                                <option value="price">Цене</option>
-                                <option value="rating">Популярности</option>
-                                <option value="date">Newest items</option>
-                                <option value="price-asc">Price: low to high</option>
-                                <option value="price-desc">Price: high to low</option>
+                                <option value="title" selected>Название</option>
+                                <option value="price-asc">Цена от дешевых</option>
+                                <option value="price-desc">Цена от дорогих</option>
+                                <option value="rating">Популярность</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div><!-- Shop Toolbar End -->
 
-            <div class="shop-product-wrap grid row">
+            <div class="shop-product-wrap products-list-grid row">
                 @foreach($products as $product)
-	                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb-30 grid-item">
+	                <div class="col-xl-4 col-sm-6 col-12 mb-30 product-item-wrapper">
 	                    <div class="product-item">
 	                        <!-- Image -->
 	                        <div class="product-image">
@@ -130,48 +130,94 @@
 					{{ $products->links('links.products') }}
                 </div>
             </div>
-            
+        </div>
+        <div class="col-xl-3 col-lg-4 col-12 order-2 order-lg-1 pr-30 pr-sm-15 pr-md-15 pr-xs-15">
+
+                    <div class="sidebar">
+                        <h4 class="sidebar-title">Search</h4>
+                        <div class="sidebar-search">
+                            <form action="#">
+                                <input type="text" placeholder="Enter key words">
+                                <input type="submit" value="search">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <h4 class="sidebar-title">Brand</h4>
+                        <ul class="sidebar-list">
+                            <li><a href="#">Baizidale Momone</a></li>
+                            <li><a href="#">Murikhete Paris</a></li>
+                            <li><a href="#">Vortahole Valohoi</a></li>
+                            <li><a href="#">Origeno Veledita</a></li>
+                            <li><a href="#">Buffekhete Parbi</a></li>
+                            <li><a href="#">Makorone Cicile</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar">
+                        <h4 class="sidebar-title">Price</h4>
+                        <div id="price-range"></div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div class="banner"><a href="#"><img src="assets/images/banner/banner-3.jpg" alt=""></a></div>
+                    </div>
+
+                    <div class="sidebar">
+                        <h4 class="sidebar-title">Tags</h4>
+                        <div class="tag-cloud">
+                            <a href="#">Oil</a>
+                            <a href="#">Beard oil</a>
+                            <a href="#">Beard</a>
+                            <a href="#">Stylish</a>
+                            <a href="#">Ecommerce</a>
+                            <a href="#">Shop</a>
+                            <a href="#">Shopping</a>
+                            <a href="#">Store</a>
+                            <a href="#">Online Store</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div><!-- Product Section End -->
     
-        <!-- Service Section Start -->
-    <div class="service-section section pl-15 pr-15 pl-lg-30 pr-lg-30 pl-md-30 pr-md-30">
-        <div class="service-container">
-            <div class="row ml-0 mr-0">
-                
-                <div class="service col-xl-3 col-md-6 col-12">
-                    <div class="icon"></div>
-                    <div class="content">
-                        <h3>Доставка по всему Харькову</h3>
-                        <p>Доставка курьером осуществляется в пределах города Харькова</p>
-                    </div>
+<!-- Service Section Start -->
+<div class="service-section section pl-15 pr-15 pl-lg-30 pr-lg-30 pl-md-30 pr-md-30">
+    <div class="service-container">
+        <div class="row ml-0 mr-0">
+            <div class="service col-xl-3 col-md-6 col-12">
+                <div class="icon"></div>
+                <div class="content">
+                    <h3>Бесплатная доставка</h3>
+                    <p>Бесплатная доставка в пределах города Харькова</p>
                 </div>
-                
-                <div class="service col-xl-3 col-md-6 col-12">
-                    <div class="icon"></div>
-                    <div class="content">
-                        <h3>Качество товаров</h3>
-                        <p>Мы работаем только с проверенными производителя, качество наша сильная сторона</p>
-                    </div>
+            </div>
+            <div class="service col-xl-3 col-md-6 col-12">
+                <div class="icon"></div>
+                <div class="content">
+                    <h3>Качество товаров</h3>
+                    <p>Мы работаем только с проверенными производителя</p>
                 </div>
-                
-                <div class="service col-xl-3 col-md-6 col-12">
-                    <div class="icon"></div>
-                    <div class="content">
-                        <h3>Срок доставки от 1 до 2 дней</h3>
-                        <p>Малогабаритные товары доставляем в день заказа</p>
-                    </div>
+            </div>
+            <div class="service col-xl-3 col-md-6 col-12">
+                <div class="icon"></div>
+                <div class="content">
+                    <h3>Срок доставки от 1 до 2 дней</h3>
+                    <p>Малогабаритные товары доставляем в день заказа</p>
                 </div>
-                
-                <div class="service col-xl-3 col-md-6 col-12">
-                    <div class="icon"></div>
-                    <div class="content">
-                        <h3>Круглосуточная онлайн поддержка 24/7</h3>
-                        <p>У нас работает круглосуточная поддержка, которая поможет вам и ответи на все ваши вопросы</p>
-                    </div>
+            </div>
+            <div class="service col-xl-3 col-md-6 col-12">
+                <div class="icon"></div>
+                <div class="content">
+                    <h3>Онлайн поддержка 24/7</h3>
+                    <p>У нас работает круглосуточная поддержка</p>
                 </div>
-                
             </div>
         </div>
-    </div><!-- Service Section End -->
+    </div>
+</div>
+<!-- Service Section End -->
 @endsection

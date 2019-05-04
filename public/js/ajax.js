@@ -64,3 +64,27 @@ $('.checkout-form').submit(function(){
 	    }
 	});
 });
+/* Isotope sorting */
+(function ($) {
+    var $grid = $('.products-list-grid').isotope({
+        itemSelector: '.product-item-wrapper',
+        getSortData: {
+            'title':        '.title',
+            'price-asc':    '.price parseFloat',
+            'price-desc':   '.price parseFloat',
+            'rating': function( itemElem ) {
+                return parseInt($(itemElem).find('.ratting i.fa-star').length);
+            }
+        },
+        sortBy: 'title'
+    });
+
+    $('.product-short .nice-select').change(function(){
+        let sortBy = $(this).val();
+        if(sortBy == 'price-desc' || sortBy == 'rating'){
+            $grid.isotope({ sortBy: sortBy, sortAscending: false });
+        }else{
+            $grid.isotope({ sortBy: sortBy, sortAscending: true });
+        }
+    });
+})(jQuery);

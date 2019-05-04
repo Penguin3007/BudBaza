@@ -338,22 +338,21 @@ $('.qtybtn').on('click', function() {
 /*--
 	Product View Mode
 -----------------------------------*/
-$('body').on('click', '.product-view-mode button', function(e) {
-    e.stopPropagation();
-    var $this = $(this);
-    var $modeClass = $this.data('mode');
-    var $productWrap = $this.closest('body').find('.shop-product-wrap');
+// $('body').on('click', '.product-view-mode button', function(e) {
+//     e.stopPropagation();
+//     var $this = $(this);
+//     var $modeClass = $this.data('mode');
+//     var $productWrap = $this.closest('body').find('.shop-product-wrap');
     
-    $('.product-view-mode button').removeClass('active');
-    $this.addClass('active');
-    
-    $productWrap.removeClass('grid-3 grid-4 list').addClass($modeClass).find('.product-item').removeClass('list');
-    
-    if($modeClass === 'list') {
-        $productWrap.find('.product-item').addClass('list');
-    }
-    
-});
+//     $('.product-view-mode button').removeClass('active');
+//     $this.addClass('active');
+
+//     $productWrap.removeClass('grid-3 grid-4 list').addClass($modeClass).find('.product-item').removeClass('list');
+
+//     if($modeClass === 'list') {
+//         $productWrap.find('.product-item').addClass('list');
+//     }    
+// });
     
 /*----- 
 	Shipping Form Toggle

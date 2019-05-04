@@ -124,8 +124,8 @@
                                         </div>
                                         <!-- Price & Ratting -->
                                         <div class="bottom">
-                                            <span class="price">{{ isset($product->disc_price) ? $product->disc_price : $product->price }} ₴ 
-                                                {!! isset($product->disc_price) ? '<span class="old">'. $product->price .' ₴</span>' : '' !!}
+                                            <span class="price">{{ isset($product->disc_price) ? $product->disc_price : $product->price }}₴ 
+                                                {!! isset($product->disc_price) ? '<span class="old">'. $product->price .'₴</span>' : '' !!}
                                             </span>
                                             <span class="ratting">
                                                 @if($product->rating == 0)
