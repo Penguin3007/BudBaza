@@ -27,10 +27,6 @@
             <div class="row">
                 <div class="col">
                     <div class="shop-toolbar">
-                        {{-- <div class="product-view-mode">
-                            <button class="grid active" data-mode="grid"><span>сетка</span></button>
-                            <button class="list" data-mode="list"><span>список</span></button>
-                        </div> --}}
                         <div class="product-showing mr-auto">
                             <p>Показано {{ count($products) }} из {{ $total }}</p>
                         </div>
@@ -48,6 +44,9 @@
             </div><!-- Shop Toolbar End -->
 
             <div class="shop-product-wrap products-list-grid row">
+                @if( count($products) == 0 )
+                    <h4>Не найдено товаров по вашему запросу</h4>
+                @endif
                 @foreach($products as $product)
 	                <div class="col-xl-4 col-sm-6 col-12 mb-30 product-item-wrapper">
 	                    <div class="product-item">
@@ -134,11 +133,20 @@
         <div class="col-xl-3 col-lg-4 col-12 order-2 order-lg-1 pr-30 pr-sm-15 pr-md-15 pr-xs-15">
 
                     <div class="sidebar">
-                        <h4 class="sidebar-title">Search</h4>
+                        <h4 class="sidebar-title">Поиск</h4>
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="sidebar-search">
-                            <form action="#">
-                                <input type="text" placeholder="Enter key words">
-                                <input type="submit" value="search">
+                            <form action="/search" method="GET">
+                                <input required type="text" name="value" value="<?php echo (!empty($_GET['value'])) ? $_GET['value'] : ''; ?>" placeholder="Введите название">
+                                <input type="submit" value="Поиск">
                             </form>
                         </div>
                     </div>
@@ -156,12 +164,12 @@
                     </div>
 
                     <div class="sidebar">
-                        <h4 class="sidebar-title">Price</h4>
-                        <div id="price-range"></div>
+                        <h4 class="sidebar-title">Цена</h4>
+                        <div id="price-range" data-min="{{ $min }}" data-max="{{ $max }}"></div>
                     </div>
 
                     <div class="sidebar">
-                        <div class="banner"><a href="#"><img src="assets/images/banner/banner-3.jpg" alt=""></a></div>
+                        <div class="banner"><a href="#"><img src="{{ asset('images/banner/banner-3.jpg') }}" alt=""></a></div>
                     </div>
 
                     <div class="sidebar">

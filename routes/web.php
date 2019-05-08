@@ -48,6 +48,9 @@ Route::group(['prefix' => 'cart'], function () {
     Route::get('/delete/{rowId}', 'CartController@delete');    
 });
 
+/* SEARCH REQUEST */
+Route::get('search','ShopController@search');
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {

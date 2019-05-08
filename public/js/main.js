@@ -285,16 +285,16 @@ function mailChimpResponse(resp) {
 -----------------------------------*/
 $('#price-range').slider({
     range: true,
-    min: 0,
-    max: 300,
-    values: [ 25, 225 ],
+    min: $('#price-range').data('min'),
+    max: $('#price-range').data('max'),
+    values: [ $('#price-range').data('min'), $('#price-range').data('max') ],
     slide: function( event, ui ) {
-        $('.ui-slider-handle:eq(0)').html( '<span>' + '$' + ui.values[ 0 ] + '</span>');
-        $('.ui-slider-handle:eq(1)').html( '<span>' + '$' + ui.values[ 1 ] + '</span>');
+        $('.ui-slider-handle:eq(0)').html( '<span>' + '₴' + ui.values[ 0 ] + '</span>');
+        $('.ui-slider-handle:eq(1)').html( '<span>' + '₴' + ui.values[ 1 ] + '</span>');
     }
 });
-$('.ui-slider-handle:eq(0)').html( '<span>' + '$' + $( "#price-range" ).slider( "values", 0 ) + '</span>' );
-$('.ui-slider-handle:eq(1)').html( '<span>' + '$' + $( "#price-range" ).slider( "values", 1 ) + '</span>' );   
+$('.ui-slider-handle:eq(0)').html( '<span>' + '₴' + $( "#price-range" ).slider( "values", 0 ) + '</span>' );
+$('.ui-slider-handle:eq(1)').html( '<span>' + '₴' + $( "#price-range" ).slider( "values", 1 ) + '</span>' );   
     
 
 /*----- 
