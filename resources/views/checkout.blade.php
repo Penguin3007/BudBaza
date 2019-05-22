@@ -111,36 +111,25 @@
                                        <h4 class="checkout-title">Способ доставки</h4>
 
                                        <div class="checkout-payment-method">
-
-                                            <div class="single-method">
-                                               <input required type="radio" id="pickup" name="shipping_method" checked value="pickup">
-                                               <label for="pickup">Самовывоз</label>
-                                            </div>
-
-                                            <div class="single-method">
-                                               <input type="radio" id="delivery" name="shipping_method" value="delivery">
-                                               <label for="delivery">Курьерская доставка</label>
-                                           </div>
-
-                                           
-
+                                        @foreach($d_methods as $d_method)
+                                          <div class="single-method">
+                                            <input required type="radio" id="pickup" name="shipping_method" value="pickup">
+                                            <label for="pickup">{{ $d_method->title }}</label>
+                                          </div>
+                                        @endforeach
+                                      
                                        </div>
 
                                        <h4 class="checkout-title">Способ оплаты</h4>
 
                                        <div class="checkout-payment-method">
-
+                                        @foreach($p_methods as $p_method)
                                            <div class="single-method">
-                                               <input required type="radio" id="payment_check" name="payment-method" value="check" checked>
-                                               <label for="payment_check">Наличными при получении</label>
-                                               <p data-method="check">Оплачиваете наличными, при получении товара</p>
+                                               <input required type="radio" id="payment_check" name="payment-method" value="check">
+                                               <label for="payment_check">{{ $p_method->title }}</label>
+                                               {{-- <p data-method="check">Оплачиваете наличными, при получении товара</p> --}}
                                            </div>
-
-                                           <div class="single-method">
-                                               <input type="radio" id="payment_bank" name="payment-method" value="bank">
-                                               <label for="payment_bank">Безналичный рассчет</label>
-                                               <p data-method="bank">Оплачиваете заказ банковской картой</p>
-                                           </div>
+                                          @endforeach
 
                                        </div>
 

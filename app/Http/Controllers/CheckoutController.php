@@ -6,11 +6,19 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\OrderItem;
 use App\User;
+use App\PaymentMethod;
+use App\DeliveryMethod;
 
 class CheckoutController extends Controller
 {
-    public function index(){
-        return view('checkout');
+    public function index(PaymentMethod $p_methods, DeliveryMethod $d_methods){
+    	$p_m = $p_methods->all();
+    	$d_m = $d_methods->all();
+    	$arr = array(
+    		'p_methods'		=> $p_m,
+    		'd_methods' 	=> $d_m
+    	);
+        return view('checkout',$arr);
     }
 
     public function create(Request $request,User $user, Order $order, OrderItem $oi){
