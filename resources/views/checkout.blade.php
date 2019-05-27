@@ -96,11 +96,8 @@
                                                     <li>{{ $item->name }} X @if($item->qty < 10) 0{{ $item->qty }} @else {{ $item->qty }} @endif <span>{{ (int)$item->options->price * (int)$item->qty }} ₴</span></li>
                                                 @endforeach
                                            </ul>
-
-                                           
-                                            <p>Итого <span>{{ \Cart::subtotal() }} ₴</span></p>
                                            <p>Стоимость доставки <span class="del_tax">0 ₴</span></p>
-
+                                           <p>Итого <span>{{ \Cart::subtotal() }} ₴</span></p>
                                        </div>
 
                                    </div>
