@@ -111,8 +111,7 @@
                                         <img src="{{ Voyager::image($img[0]) }}" alt=""></a>
                                     <!-- Product Action -->
                                     <div class="product-action">
-                                        <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart add-to-cart"><span></span></a>
-                                        <a href="#" class="quickview"><span></span></a>
+                                        <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart add-to-cart"><span></span></a>    
                                     </div>
                                 </div>
                                 <!-- Content -->
@@ -243,8 +242,7 @@
                                 <a href="/product/{{ $product->slug }}" class="image"><img src="{{ Voyager::image($img[0]) }}" alt=""></a>
                                 <!-- Product Action -->
                                 <div class="product-action">
-                                    <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart"><span></span></a>
-                                    <a href="#" class="quickview"><span></span></a>
+                                    <a data-id="{{ $product->id }}" href="javascript:void(0)" class="cart"><span></span></a>                                    
                                 </div>
                             </div>
                             <!-- Content -->

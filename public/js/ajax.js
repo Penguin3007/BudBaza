@@ -59,6 +59,7 @@ $('.checkout-form').submit(function(){
 	        $('.loaderArea').fadeIn().find('.loader').fadeIn();
 	    },
 	    success:function(msg){
+	    	console.log(msg);
 	        $('.loaderArea').fadeOut().find('.loader').fadeOut();
 	        if(msg.code == 1) location.href = "/";
 	    }

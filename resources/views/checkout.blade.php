@@ -110,7 +110,7 @@
                                        <div class="checkout-payment-method">
                                         @foreach($d_methods as $d_method)
                                           <div class="single-method">
-                                            <input required type="radio" id="pickup" name="shipping_method" value="pickup">
+                                            <input required type="radio" id="pickup" name="shipping_method" value="{{ $d_method->id }}">
                                             <label for="pickup">{{ $d_method->title }}</label>
                                           </div>
                                         @endforeach
@@ -122,7 +122,7 @@
                                        <div class="checkout-payment-method">
                                         @foreach($p_methods as $p_method)
                                            <div class="single-method">
-                                               <input required type="radio" id="payment_check" name="payment-method" value="check">
+                                               <input required type="radio" id="payment_check" name="payment_method" value="{{ $p_method->id }}">
                                                <label for="payment_check">{{ $p_method->title }}</label>
                                                {{-- <p data-method="check">Оплачиваете наличными, при получении товара</p> --}}
                                            </div>

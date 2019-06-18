@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
-use App\OrderItem;
+use App\OrderProduct;
 use App\User;
 use App\PaymentMethod;
 use App\DeliveryMethod;
@@ -21,7 +21,7 @@ class CheckoutController extends Controller
         return view('checkout',$arr);
     }
 
-    public function create(Request $request,User $user, Order $order, OrderItem $oi){
+    public function create(Request $request,User $user, Order $order, OrderProduct $oi){
     	$price = \Cart::subtotal();
     	if($request->shipping_method == 'delivery'){
     		$price += 100;
@@ -51,7 +51,7 @@ class CheckoutController extends Controller
     	$order_id = $order->insert([
 		    [
 		    	'price'  => $price,
-		    	'status' => 'wait-for-pay',
+		    	'status' => 'in-process',
 		    	'user_id'=> $user_id,
 		    	'f_name' => $request->f_name,
 		    	'l_name' => $request->l_name,
@@ -67,7 +67,7 @@ class CheckoutController extends Controller
             $m->to($request->email, 'Получатель')->subject('Спасибо за заказ на сайте BudBaza.');
     	});
 		foreach(\Cart::content() as $item){
-			$oi->insert([
+			\DB::table('order_products')->insert([
 				['order_id' => $order_id,'product_id' => $item->id]
 			]);
 		}

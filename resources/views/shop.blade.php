@@ -150,43 +150,6 @@
                             </form>
                         </div>
                     </div>
-
-                    <div class="sidebar">
-                        <h4 class="sidebar-title">Brand</h4>
-                        <ul class="sidebar-list">
-                            <li><a href="#">Baizidale Momone</a></li>
-                            <li><a href="#">Murikhete Paris</a></li>
-                            <li><a href="#">Vortahole Valohoi</a></li>
-                            <li><a href="#">Origeno Veledita</a></li>
-                            <li><a href="#">Buffekhete Parbi</a></li>
-                            <li><a href="#">Makorone Cicile</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar">
-                        <h4 class="sidebar-title">Цена</h4>
-                        <div id="price-range" data-min="{{ $min }}" data-max="{{ $max }}"></div>
-                    </div>
-
-                    <div class="sidebar">
-                        <div class="banner"><a href="#"><img src="{{ asset('images/banner/banner-3.jpg') }}" alt=""></a></div>
-                    </div>
-
-                    <div class="sidebar">
-                        <h4 class="sidebar-title">Tags</h4>
-                        <div class="tag-cloud">
-                            <a href="#">Oil</a>
-                            <a href="#">Beard oil</a>
-                            <a href="#">Beard</a>
-                            <a href="#">Stylish</a>
-                            <a href="#">Ecommerce</a>
-                            <a href="#">Shop</a>
-                            <a href="#">Shopping</a>
-                            <a href="#">Store</a>
-                            <a href="#">Online Store</a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
